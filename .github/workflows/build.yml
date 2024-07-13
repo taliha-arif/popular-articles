@@ -12,18 +12,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up JDK
-        uses: actions/setup-java@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          java-version: "11"
-          distribution: "adopt" # Specify the Java distribution here
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
 
       - name: SonarQube Scan
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.sqp_d8d14a441a8576379e965347db369631a399b651 }} # Replace with your SonarQube token
         run: |
-          ./gradlew sonarqube \
-            -Dsonar.projectKey=Popular-Articles \
-            -Dsonar.host.url=http://localhost:9000 \
-            -Dsonar.login=$SONAR_TOKEN
+          npm run sonarqube
