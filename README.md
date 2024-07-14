@@ -4,8 +4,8 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/nytimes-popular-articles.git
-   cd nytimes-popular-articles
+   git clone https://github.com/taliha-arif/popular-articles.git
+   cd popular-articles
    ```
 2. Move to node.js version(required for sonar):
     ```bash
